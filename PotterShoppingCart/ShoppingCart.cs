@@ -6,11 +6,9 @@ using System.Linq;
 namespace PotterShoppingCart {
     public class ShoppingCart {
         public int CaculatePrice(IEnumerable<Book> books) {
-            int totalPrice = 0;
-            return totalPrice;
+            return books.Sum(m => m.Price * m.Count);
         }
     }
-
 
     public abstract class Book {
         public abstract int Price { get; set; }
@@ -18,6 +16,11 @@ namespace PotterShoppingCart {
     }
 
     public class HarryPotterFirstEpisode : Book {
+        public override int Price { get; set; }
+        public override int Count { get; set; }
+    }
+
+    public class HarryPotterSecondEpisode : Book {
         public override int Price { get; set; }
         public override int Count { get; set; }
     }
