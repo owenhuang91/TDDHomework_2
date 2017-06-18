@@ -19,7 +19,7 @@ namespace PotterShoppingCart.Tests {
             //arrange
             var target = new ShoppingCart();
             var expected = 100;
-            var firstEpisode = new HarryPotterFirstEpisode() { Price = 100, Count = 1 };
+            var firstEpisode = new HarryPotterFirstEpisode() { Price = 100, Amount = 1 };
 
             //act
             int actual = target.CaculatePrice(new List<Book>() { firstEpisode });
@@ -37,8 +37,8 @@ namespace PotterShoppingCart.Tests {
             //arrange
             var target = new ShoppingCart();
             var expected = 190;
-            var firstEpisode = new HarryPotterFirstEpisode() { Price = 100, Count = 1 };
-            var secondEpisod = new HarryPotterSecondEpisode() { Price = 100, Count = 1 };
+            var firstEpisode = new HarryPotterFirstEpisode() { Price = 100, Amount = 1 };
+            var secondEpisod = new HarryPotterSecondEpisode() { Price = 100, Amount = 1 };
             //act
             int actual = target.CaculatePrice(new List<Book>() { firstEpisode, secondEpisod });
 
