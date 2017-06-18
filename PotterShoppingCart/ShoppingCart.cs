@@ -21,6 +21,9 @@ namespace PotterShoppingCart {
                 case 4:
                     percent = 0.8;
                     break;
+                case 5:
+                    percent = 0.75;
+                    break;
                 default:
                     break;
             }
