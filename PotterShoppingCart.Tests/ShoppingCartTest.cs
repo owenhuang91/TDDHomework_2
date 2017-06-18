@@ -45,5 +45,22 @@ namespace PotterShoppingCart.Tests {
             //assert
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        public void Buy_first_episode_count_1_and_second_episode_count_1_and_third_episode_count_1_should_return_270() {
+
+            //arrange
+            var target = new ShoppingCart();
+            var expected = 270;
+            var firstEpisode = new HarryPotterFirstEpisode() { Price = 100, Amount = 1 };
+            var secondEpisod = new HarryPotterSecondEpisode() { Price = 100, Amount = 1 };
+            var thirdEpisod = new HarryPotterThirdEpisode() { Price = 100, Amount = 1 };
+
+            //act
+            int actual = target.CaculatePrice(new List<Book>() { firstEpisode, secondEpisod, thirdEpisod });
+
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
     }
 }

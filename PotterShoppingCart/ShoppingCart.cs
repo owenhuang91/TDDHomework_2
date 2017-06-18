@@ -33,4 +33,8 @@ namespace PotterShoppingCart {
     public class HarryPotterSecondEpisode : Book {
         public override int Price { get; set; }
     }
+
+    public class HarryPotterThirdEpisode : Book {
+        public override int Price { get; set; }
+    }
 }
