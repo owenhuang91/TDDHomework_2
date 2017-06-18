@@ -18,6 +18,9 @@ namespace PotterShoppingCart {
                 case 3:
                     percent = 0.9;
                     break;
+                case 4:
+                    percent = 0.8;
+                    break;
                 default:
                     break;
             }
@@ -47,6 +50,10 @@ namespace PotterShoppingCart {
     }
 
     public class HarryPotterFourthEpisode : Book {
+        public override int Price { get; set; }
+    }
+
+    public class HarryPotterFifthEpisode : Book {
         public override int Price { get; set; }
     }
 }

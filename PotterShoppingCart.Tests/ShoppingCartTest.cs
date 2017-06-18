@@ -86,5 +86,28 @@ namespace PotterShoppingCart.Tests {
             //assert
             Assert.AreEqual(expected, actual);
         }
+
+        /// <summary>
+        /// 一次買了整套，一二三四五集各買了一本，價格應為100*5*0.75=375
+        /// </summary>
+        [TestMethod]
+        public void Buy_first_episode_count_1_and_second_episode_count_1_and_third_episode_count_1_and_fourth_episode_count_1_and_Fifth_episode_count_1_should_return_375() {
+
+            //arrange
+            var target = new ShoppingCart();
+            var expected = 375;
+            var firstEpisode = new HarryPotterFirstEpisode() { Price = 100, Amount = 1 };
+            var secondEpisod = new HarryPotterSecondEpisode() { Price = 100, Amount = 1 };
+            var thirdEpisod = new HarryPotterThirdEpisode() { Price = 100, Amount = 1 };
+            var fourthEpisod = new HarryPotterFourthEpisode() { Price = 100, Amount = 1 };
+            var fifthEpisod = new HarryPotterFifthEpisode() { Price = 100, Amount = 1 };
+
+            //act
+            int actual = target.CaculatePrice(new List<Book>() { firstEpisode, secondEpisod, thirdEpisod, fourthEpisod, fifthEpisod });
+
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+
     }
 }
