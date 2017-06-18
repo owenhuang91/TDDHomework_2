@@ -11,18 +11,11 @@ namespace PotterShoppingCart {
             double rawPrice = 0;
             double percent = 1;
 
-            if (books.Any(m => m.Amount >= 2)) {
-                while (books.Any(m => m.Amount != 0)) {
-                    var composit = books.Where(m => m.Amount > 0);
-                    rawPrice += composit.Sum(m => m.Price) * GetDiscountPercent(composit.Count());
-                    books.ForEach(m => { if (m.Amount > 0) m.Amount--; });
-                }
-            }
-
-            else {
-                //折扣
-                percent = GetDiscountPercent(books.Count());
-                rawPrice = books.Sum(m => m.Price * m.Amount) * percent;
+            while (books.Any(m => m.Amount != 0)) {
+                var needCaculateBooks = books.Where(m => m.Amount > 0);
+                percent = GetDiscountPercent(needCaculateBooks.Count());
+                rawPrice += needCaculateBooks.Sum(m => m.Price) * percent;
+                books.ForEach(m => { if (m.Amount > 0) m.Amount--; });
             }
 
             totalPrice = Convert.ToInt32(Math.Round(rawPrice, 0, MidpointRounding.AwayFromZero));
