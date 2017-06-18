@@ -46,6 +46,9 @@ namespace PotterShoppingCart.Tests {
             Assert.AreEqual(expected, actual);
         }
 
+        /// <summary>
+        /// 一二三集各買了一本，價格應為100*3*0.9=270
+        /// </summary>
         [TestMethod]
         public void Buy_first_episode_count_1_and_second_episode_count_1_and_third_episode_count_1_should_return_270() {
 
@@ -58,6 +61,27 @@ namespace PotterShoppingCart.Tests {
 
             //act
             int actual = target.CaculatePrice(new List<Book>() { firstEpisode, secondEpisod, thirdEpisod });
+
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        /// <summary>
+        /// 一二三四集各買了一本，價格應為100*4*0.8=320
+        /// </summary>
+        [TestMethod]
+        public void Buy_first_episode_count_1_and_second_episode_count_1_and_third_episode_count_1_and_fourth_episode_count_1_should_return_320() {
+
+            //arrange
+            var target = new ShoppingCart();
+            var expected = 320;
+            var firstEpisode = new HarryPotterFirstEpisode() { Price = 100, Amount = 1 };
+            var secondEpisod = new HarryPotterSecondEpisode() { Price = 100, Amount = 1 };
+            var thirdEpisod = new HarryPotterThirdEpisode() { Price = 100, Amount = 1 };
+            var fourthEpisod = new HarryPotterFourthEpisode() { Price = 100, Amount = 1 };
+
+            //act
+            int actual = target.CaculatePrice(new List<Book>() { firstEpisode, secondEpisod, thirdEpisod, fourthEpisod });
 
             //assert
             Assert.AreEqual(expected, actual);

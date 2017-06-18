@@ -11,9 +11,17 @@ namespace PotterShoppingCart {
             double percent = 1;
 
             //折扣
-            if (books.Count() > 1) {
-                percent = 0.95;
+            switch (books.Count()) {
+                case 2:
+                    percent = 0.95;
+                    break;
+                case 3:
+                    percent = 0.9;
+                    break;
+                default:
+                    break;
             }
+
             double rawPrice = books.Sum(m => m.Price * m.Amount) * percent;
             totalPrice = Convert.ToInt32(Math.Round(rawPrice, 0, MidpointRounding.AwayFromZero));
 
@@ -35,6 +43,10 @@ namespace PotterShoppingCart {
     }
 
     public class HarryPotterThirdEpisode : Book {
+        public override int Price { get; set; }
+    }
+
+    public class HarryPotterFourthEpisode : Book {
         public override int Price { get; set; }
     }
 }
