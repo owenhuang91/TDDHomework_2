@@ -5,13 +5,39 @@ using System.Linq;
 
 namespace PotterShoppingCart {
     public class ShoppingCart {
-        public int CaculatePrice(IEnumerable<Book> books) {
+        public int CaculatePrice(List<Book> books) {
 
             int totalPrice = 0;
+            double rawPrice = 0;
             double percent = 1;
 
-            //折扣
-            switch (books.Count()) {
+            if (books.Any(m => m.Amount >= 2)) {
+                while (books.Any(m => m.Amount != 0)) {
+                    var composit = books.Where(m => m.Amount > 0);
+                    rawPrice += composit.Sum(m => m.Price) * GetDiscountPercent(composit.Count());
+                    books.ForEach(m => { if (m.Amount > 0) m.Amount--; });
+                }
+            }
+
+            else {
+                //折扣
+                percent = GetDiscountPercent(books.Count());
+                rawPrice = books.Sum(m => m.Price * m.Amount) * percent;
+            }
+
+            totalPrice = Convert.ToInt32(Math.Round(rawPrice, 0, MidpointRounding.AwayFromZero));
+
+            return totalPrice;
+        }
+
+        private double GetDiscountPercent(int amount) {
+
+            double percent = 1;
+
+            switch (amount) {
+                case 1:
+                    percent = 1;
+                    break;
                 case 2:
                     percent = 0.95;
                     break;
@@ -27,36 +53,27 @@ namespace PotterShoppingCart {
                 default:
                     break;
             }
-
-            double rawPrice = books.Sum(m => m.Price * m.Amount) * percent;
-            totalPrice = Convert.ToInt32(Math.Round(rawPrice, 0, MidpointRounding.AwayFromZero));
-
-            return totalPrice;
+            return percent;
         }
     }
 
-    public abstract class Book {
-        public abstract int Price { get; set; }
+    public class Book {
+        public int Price { get; set; }
         public int Amount { get; set; }
     }
 
     public class HarryPotterFirstEpisode : Book {
-        public override int Price { get; set; }
     }
 
     public class HarryPotterSecondEpisode : Book {
-        public override int Price { get; set; }
     }
 
     public class HarryPotterThirdEpisode : Book {
-        public override int Price { get; set; }
     }
 
     public class HarryPotterFourthEpisode : Book {
-        public override int Price { get; set; }
     }
 
     public class HarryPotterFifthEpisode : Book {
-        public override int Price { get; set; }
     }
 }
