@@ -9,14 +9,14 @@ namespace PotterShoppingCart {
 
             int totalPrice = 0;
             decimal rawPrice = 0;
-            decimal percent = 1;
+            decimal dicountPercent = 1;
 
             while (books.Any(m => m.Amount != 0)) {
 
                 var needDiscountedBooks = books.Where(m => m.Amount > 0);
 
-                percent = GetDiscountedPercent(needDiscountedBooks.Count());
-                rawPrice += needDiscountedBooks.Sum(m => m.Price) * percent;
+                dicountPercent = GetDiscountedPercent(needDiscountedBooks.Count());
+                rawPrice += needDiscountedBooks.Sum(m => m.Price) * dicountPercent;
                 books.ForEach(m => { if (m.Amount > 0) m.Amount--; });
             }
 
@@ -55,20 +55,6 @@ namespace PotterShoppingCart {
     public class Book {
         public int Price { get; set; }
         public int Amount { get; set; }
-    }
-
-    public class HarryPotterFirstEpisode : Book {
-    }
-
-    public class HarryPotterSecondEpisode : Book {
-    }
-
-    public class HarryPotterThirdEpisode : Book {
-    }
-
-    public class HarryPotterFourthEpisode : Book {
-    }
-
-    public class HarryPotterFifthEpisode : Book {
+        public string Name { get; set; }
     }
 }

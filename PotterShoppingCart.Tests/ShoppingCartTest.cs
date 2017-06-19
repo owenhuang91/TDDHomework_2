@@ -19,7 +19,7 @@ namespace PotterShoppingCart.Tests {
             //arrange
             var target = new ShoppingCart();
             var expected = 100;
-            var firstEpisode = new HarryPotterFirstEpisode() { Price = 100, Amount = 1 };
+            var firstEpisode = new Book() { Name = "HarryPotterFirstEpisode", Price = 100, Amount = 1 };
 
             //act
             int actual = target.CaculatePrice(new List<Book>() { firstEpisode });
@@ -37,8 +37,8 @@ namespace PotterShoppingCart.Tests {
             //arrange
             var target = new ShoppingCart();
             var expected = 190;
-            var firstEpisode = new HarryPotterFirstEpisode() { Price = 100, Amount = 1 };
-            var secondEpisod = new HarryPotterSecondEpisode() { Price = 100, Amount = 1 };
+            var firstEpisode = new Book() { Name = "HarryPotterFirstEpisode", Price = 100, Amount = 1 };
+            var secondEpisod = new Book() { Name = "HarryPotterSecondEpisode", Price = 100, Amount = 1 };
             //act
             int actual = target.CaculatePrice(new List<Book>() { firstEpisode, secondEpisod });
 
@@ -55,9 +55,9 @@ namespace PotterShoppingCart.Tests {
             //arrange
             var target = new ShoppingCart();
             var expected = 270;
-            var firstEpisode = new HarryPotterFirstEpisode() { Price = 100, Amount = 1 };
-            var secondEpisod = new HarryPotterSecondEpisode() { Price = 100, Amount = 1 };
-            var thirdEpisod = new HarryPotterThirdEpisode() { Price = 100, Amount = 1 };
+            var firstEpisode = new Book() { Name = "HarryPotterFirstEpisode", Price = 100, Amount = 1 };
+            var secondEpisod = new Book() { Name = "HarryPotterSecondEpisode", Price = 100, Amount = 1 };
+            var thirdEpisod = new Book() { Name = "HarryPotterThirdEpisode", Price = 100, Amount = 1 };
 
             //act
             int actual = target.CaculatePrice(new List<Book>() { firstEpisode, secondEpisod, thirdEpisod });
@@ -75,10 +75,10 @@ namespace PotterShoppingCart.Tests {
             //arrange
             var target = new ShoppingCart();
             var expected = 320;
-            var firstEpisode = new HarryPotterFirstEpisode() { Price = 100, Amount = 1 };
-            var secondEpisod = new HarryPotterSecondEpisode() { Price = 100, Amount = 1 };
-            var thirdEpisod = new HarryPotterThirdEpisode() { Price = 100, Amount = 1 };
-            var fourthEpisod = new HarryPotterFourthEpisode() { Price = 100, Amount = 1 };
+            var firstEpisode = new Book() { Name = "HarryPotterFirstEpisode", Price = 100, Amount = 1 };
+            var secondEpisod = new Book() { Name = "HarryPotterSecondEpisode", Price = 100, Amount = 1 };
+            var thirdEpisod = new Book() { Name = "HarryPotterThirdEpisode", Price = 100, Amount = 1 };
+            var fourthEpisod = new Book() { Name = "HarryPotterFourthEpisode", Price = 100, Amount = 1 };
 
             //act
             int actual = target.CaculatePrice(new List<Book>() { firstEpisode, secondEpisod, thirdEpisod, fourthEpisod });
@@ -96,11 +96,11 @@ namespace PotterShoppingCart.Tests {
             //arrange
             var target = new ShoppingCart();
             var expected = 375;
-            var firstEpisode = new HarryPotterFirstEpisode() { Price = 100, Amount = 1 };
-            var secondEpisod = new HarryPotterSecondEpisode() { Price = 100, Amount = 1 };
-            var thirdEpisod = new HarryPotterThirdEpisode() { Price = 100, Amount = 1 };
-            var fourthEpisod = new HarryPotterFourthEpisode() { Price = 100, Amount = 1 };
-            var fifthEpisod = new HarryPotterFifthEpisode() { Price = 100, Amount = 1 };
+            var firstEpisode = new Book() { Name = "HarryPotterFirstEpisode", Price = 100, Amount = 1 };
+            var secondEpisod = new Book() { Name = "HarryPotterSecondEpisode", Price = 100, Amount = 1 };
+            var thirdEpisod = new Book() { Name = "HarryPotterThirdEpisode", Price = 100, Amount = 1 };
+            var fourthEpisod = new Book() { Name = "HarryPotterFourthEpisode", Price = 100, Amount = 1 };
+            var fifthEpisod = new Book() { Name = "HarryPotterFifthEpisode", Price = 100, Amount = 1 };
 
             //act
             int actual = target.CaculatePrice(new List<Book>() { firstEpisode, secondEpisod, thirdEpisod, fourthEpisod, fifthEpisod });
@@ -119,9 +119,9 @@ namespace PotterShoppingCart.Tests {
             //arrange
             var target = new ShoppingCart();
             var expected = 370;
-            var firstEpisode = new HarryPotterFirstEpisode() { Price = 100, Amount = 1 };
-            var secondEpisod = new HarryPotterSecondEpisode() { Price = 100, Amount = 1 };
-            var thirdEpisod = new HarryPotterThirdEpisode() { Price = 100, Amount = 2 };
+            var firstEpisode = new Book() { Name = "HarryPotterFirstEpisode", Price = 100, Amount = 1 };
+            var secondEpisod = new Book() { Name = "HarryPotterSecondEpisode", Price = 100, Amount = 1 };
+            var thirdEpisod = new Book() { Name = "HarryPotterThirdEpisode", Price = 100, Amount = 2 };
 
             //act
             int actual = target.CaculatePrice(new List<Book>() { firstEpisode, secondEpisod, thirdEpisod });
@@ -139,9 +139,9 @@ namespace PotterShoppingCart.Tests {
             //arrange
             var target = new ShoppingCart();
             var expected = 460;
-            var firstEpisode = new HarryPotterFirstEpisode() { Price = 100, Amount = 1 };
-            var secondEpisod = new HarryPotterSecondEpisode() { Price = 100, Amount = 2 };
-            var thirdEpisod = new HarryPotterThirdEpisode() { Price = 100, Amount = 2 };
+            var firstEpisode = new Book() { Name = "HarryPotterFirstEpisode", Price = 100, Amount = 1 };
+            var secondEpisod = new Book() { Name = "HarryPotterSecondEpisode", Price = 100, Amount = 2 };
+            var thirdEpisod = new Book() { Name = "HarryPotterThirdEpisode", Price = 100, Amount = 2 };
 
             //act
             int actual = target.CaculatePrice(new List<Book>() { firstEpisode, secondEpisod, thirdEpisod });
