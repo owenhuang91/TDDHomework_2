@@ -12,9 +12,11 @@ namespace PotterShoppingCart {
             double percent = 1;
 
             while (books.Any(m => m.Amount != 0)) {
-                var needCaculateBooks = books.Where(m => m.Amount > 0);
-                percent = GetDiscountPercent(needCaculateBooks.Count());
-                rawPrice += needCaculateBooks.Sum(m => m.Price) * percent;
+
+                var needDiscountedBooks = books.Where(m => m.Amount > 0);
+
+                percent = GetDiscountedPercent(needDiscountedBooks.Count());
+                rawPrice += needDiscountedBooks.Sum(m => m.Price) * percent;
                 books.ForEach(m => { if (m.Amount > 0) m.Amount--; });
             }
 
@@ -23,11 +25,11 @@ namespace PotterShoppingCart {
             return totalPrice;
         }
 
-        private double GetDiscountPercent(int amount) {
+        private double GetDiscountedPercent(int booksAmount) {
 
             double percent = 1;
 
-            switch (amount) {
+            switch (booksAmount) {
                 case 1:
                     percent = 1;
                     break;
