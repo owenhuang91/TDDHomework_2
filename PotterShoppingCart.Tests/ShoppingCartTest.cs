@@ -14,7 +14,7 @@ namespace PotterShoppingCart.Tests {
         /// 第一集買了一本，其他都沒買，價格應為100*1=100元
         /// </summary>
         [TestMethod]
-        public void Buy_first_episode_count_1_should_return_100() {
+        public void 第一集買了一本_價格應為100元() {
 
             //arrange
             var target = new ShoppingCart();
@@ -32,7 +32,7 @@ namespace PotterShoppingCart.Tests {
         /// 第一集買了一本，第二集也買了一本，價格應為100*2*0.95=190
         /// </summary>
         [TestMethod]
-        public void Buy_first_episode_count_1_and_second_episode_count_1_should_return_190() {
+        public void 第一集和第二集各買了一本_價格應為190() {
 
             //arrange
             var target = new ShoppingCart();
@@ -50,7 +50,7 @@ namespace PotterShoppingCart.Tests {
         /// 一二三集各買了一本，價格應為100*3*0.9=270
         /// </summary>
         [TestMethod]
-        public void Buy_first_episode_count_1_and_second_episode_count_1_and_third_episode_count_1_should_return_270() {
+        public void 一二三集各買了一本_價格應為270() {
 
             //arrange
             var target = new ShoppingCart();
@@ -70,7 +70,7 @@ namespace PotterShoppingCart.Tests {
         /// 一二三四集各買了一本，價格應為100*4*0.8=320
         /// </summary>
         [TestMethod]
-        public void Buy_first_episode_count_1_and_second_episode_count_1_and_third_episode_count_1_and_fourth_episode_count_1_should_return_320() {
+        public void 一二三四集各買了一本_價格應為320() {
 
             //arrange
             var target = new ShoppingCart();
@@ -91,7 +91,7 @@ namespace PotterShoppingCart.Tests {
         /// 一次買了整套，一二三四五集各買了一本，價格應為100*5*0.75=375
         /// </summary>
         [TestMethod]
-        public void Buy_first_episode_count_1_and_second_episode_count_1_and_third_episode_count_1_and_fourth_episode_count_1_and_Fifth_episode_count_1_should_return_375() {
+        public void 一二三四五集各買了一本_價格應為375() {
 
             //arrange
             var target = new ShoppingCart();
@@ -114,7 +114,7 @@ namespace PotterShoppingCart.Tests {
         /// 一二集各買了一本，第三集買了兩本，價格應為100*3*0.9 + 100 = 370
         /// </summary>
         [TestMethod]
-        public void Buy_first_episode_count_1_and_second_episode_count_1_and_third_episode_count_2_should_return_370() {
+        public void 一二集各買了一本_第三集買了兩本_價格應為370() {
 
             //arrange
             var target = new ShoppingCart();
@@ -134,7 +134,7 @@ namespace PotterShoppingCart.Tests {
         /// 第一集買了一本，第二三集各買了兩本，價格應為100*3*0.9 + 100*2*0.95 = 460
         /// </summary>
         [TestMethod]
-        public void Buy_first_episode_count_1_and_second_episode_count_2_and_third_episode_count_2_should_return_460() {
+        public void 第一集買了一本_第二三集各買了兩本價格應為460() {
 
             //arrange
             var target = new ShoppingCart();

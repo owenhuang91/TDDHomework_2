@@ -8,8 +8,8 @@ namespace PotterShoppingCart {
         public int CaculatePrice(List<Book> books) {
 
             int totalPrice = 0;
-            double rawPrice = 0;
-            double percent = 1;
+            decimal rawPrice = 0;
+            decimal percent = 1;
 
             while (books.Any(m => m.Amount != 0)) {
 
@@ -25,25 +25,25 @@ namespace PotterShoppingCart {
             return totalPrice;
         }
 
-        private double GetDiscountedPercent(int booksAmount) {
+        private decimal GetDiscountedPercent(int booksAmount) {
 
-            double percent = 1;
+            decimal percent = 1;
 
             switch (booksAmount) {
                 case 1:
                     percent = 1;
                     break;
                 case 2:
-                    percent = 0.95;
+                    percent = 0.95m;
                     break;
                 case 3:
-                    percent = 0.9;
+                    percent = 0.9m;
                     break;
                 case 4:
-                    percent = 0.8;
+                    percent = 0.8m;
                     break;
                 case 5:
-                    percent = 0.75;
+                    percent = 0.75m;
                     break;
                 default:
                     break;
