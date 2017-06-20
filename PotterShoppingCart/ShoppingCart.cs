@@ -11,12 +11,16 @@ namespace PotterShoppingCart {
             decimal rawPrice = 0;
             decimal dicountPercent = 1;
 
+            //執行迴圈直到所有書的數量都為0為止
             while (books.Any(m => m.Amount != 0)) {
 
+                //找出這一次有哪幾本書可以一起算折扣
                 var needDiscountedBooks = books.Where(m => m.Amount > 0);
 
                 dicountPercent = GetDiscountedPercent(needDiscountedBooks.Count());
                 rawPrice += needDiscountedBooks.Sum(m => m.Price) * dicountPercent;
+
+                //將剛剛已經計算過價格的書扣除
                 books.ForEach(m => { if (m.Amount > 0) m.Amount--; });
             }
 
